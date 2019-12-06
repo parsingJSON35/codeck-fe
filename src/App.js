@@ -3,7 +3,6 @@ import './App.css';
 import {
   Grid,
   Hidden,
-  Paper
 } from '@material-ui/core'
 
 function App() {
