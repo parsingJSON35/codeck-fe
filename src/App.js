@@ -18,6 +18,7 @@ function App() {
   //   }
   // }
 
+
   return (
       <div className="App">
         <Grid container component='main'>
@@ -29,11 +30,13 @@ function App() {
             </Grid>
           </Hidden>
           <Grid item xs={12} sm={7} md={5} component={Paper}>
-            <form id='login-form'>
-              <TextField variant='outlined' label='Username' placeholder='Username' required autofocus fullWidth></TextField>
-              <TextField variant='outlined' label='Password' placeholder='Password' required autofocus fullWidth></TextField>
-              <Button fullWidth contained>Sign In</Button>
-            </form>
+            <div id='login-form'>
+              <form>
+                <TextField variant='outlined' label='Username' placeholder='Username' required autofocus fullWidth></TextField>
+                <TextField variant='outlined' label='Password' placeholder='Password' required autofocus fullWidth></TextField>
+                <Button fullWidth contained>Sign In</Button>
+              </form>
+            </div>
           </Grid>
         </Grid>
       </div>
