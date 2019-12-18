@@ -1,46 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Login from './Login';
 import {
-  Grid,
-  Paper,
-  Hidden,
-  TextField,
-  Button
-} from '@material-ui/core'
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from 'react-router-dom';
+import { Home } from './Home'
 
-function App() {
-  // let styles = {
-  //   image: {
-  //     backgroundImage: 'url(./images/intro_pair.jpg)',
-  //     backgroundRepeat: 'no-repeat',
-  //     backgroundSize: 'cover',
-  //     backgroundPosition: 'center',
-  //   }
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      loggedIn: false
+    }
+  }
+
+  loginUser = () => {
+    this.setState({loggedIn: true})
+  }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log(nextState, this.state);
+    
+  //   return nextState !== this.state
   // }
 
+  render() {
+    let { loggedIn } = this.state
+    console.log(loggedIn);
 
-  return (
-      <div className="App">
-        <Grid container component='main'>
-          <Hidden xsDown>
-            <Grid item xs={false} sm={5} md={7} className='intro-img'>
-              <div id='logo'>
-                <div>Codeck</div>
-              </div>
-            </Grid>
-          </Hidden>
-          <Grid item xs={12} sm={7} md={5} component={Paper}>
-            <div id='login-form'>
-              <form>
-                <TextField variant='outlined' label='Username' placeholder='Username' required autofocus fullWidth></TextField>
-                <TextField variant='outlined' label='Password' placeholder='Password' required autofocus fullWidth></TextField>
-                <Button fullWidth contained>Sign In</Button>
-              </form>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-  );
+    return (
+      <Router>
+        <div className="App">
+          <Switch>
+          <Route exact path='/'>
+              { loggedIn ? <Home /> : <Redirect to='/login' /> }
+            </Route>
+            <Route path='/login'>
+              <Login handleSubmit={this.loginUser} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
 }
 
-export default App;
+export default App

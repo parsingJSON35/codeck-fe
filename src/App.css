@@ -5,6 +5,10 @@
   background-position: center;
 }
 
+#sign-in {
+  margin: 20px 0;
+}
+
 #logo {
   height: 100%;
   width: 100%;
@@ -23,10 +27,16 @@
 }
 
 #login-form {
-  height: 50%;
-  margin: 20px 20px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.login-input { 
+  margin-top: 20px;
 }
 
 main {
