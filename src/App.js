@@ -5,11 +5,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
-  withRouter
 } from 'react-router-dom';
 import Home from './Home'
+import Register from './Register'
 
 class App extends Component {
   constructor(props) {
@@ -43,6 +42,9 @@ class App extends Component {
             </Route>
             <Route path='/login'>
               <Login handleSubmit={this.loginUser} />
+            </Route>
+            <Route path='/register'>
+              <Register />
             </Route>
           </Switch>
         </div>
